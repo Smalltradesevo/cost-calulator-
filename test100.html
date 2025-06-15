@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Become an Elite Referral Agent</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-dark: #2a2a2a;
+      --primary-blue: #003f6b;
+      --background-light: #f8f9fa;
+      --glass-bg: rgba(255,255,255,0.1);
+      --glass-border: rgba(255,255,255,0.2);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Oswald', sans-serif;
+      background: var(--background-light);
+      color: var(--primary-dark);
+      scroll-behavior: smooth;
+
+      /* make room for the fixed header and center all sections */
+      padding-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ─── Header ───────────────────────────────────────────── */
+    .sticky-header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: var(--primary-dark);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .sticky-header img {
+      height: 40px;
+    }
+    .sticky-header a.cta {
+      font-size: .9rem;
+      padding: 10px 16px;
+      color: #fff;
+      text-decoration: none;
+      background: var(--primary-blue);
+      border-radius: 6px;
+    }
+
+    /* ─── Parallax Hero ───────────────────────────────────── */
+    .parallax {
+      background-image: url('/mnt/data/new%20logo%20stevov2.jpeg');
+      min-height: 350px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .parallax h2 {
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 2.5rem;
+      text-align: center;
+      animation: fadeIn 2s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to   { opacity: 1 }
+    }
+
+    /* ─── Scroll‐Reveal ───────────────────────────────────── */
+    section, footer {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+    section.show, footer.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Typography ──────────────────────────────────────── */
+    h1, h2 {
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      line-height: 1.6;
+      margin: 1rem 0;
+      text-align: justify;
+    }
+    ul, ol {
+      list-style: none;
+      margin: 1rem 0;
+      padding-left: 0;
+      line-height: 1.7;
+      text-align: left;
+    }
+    ul li::before, ol li::before {
+      content: "•";
+      color: var(--primary-blue);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .highlight {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 24px 0;
+      color: #000;
+      text-align: left;
+    }
+
+    /* ─── Buttons & CTAs ──────────────────────────────────── */
+    .cta, .btn {
+      display: inline-block;
+      margin: 2rem auto;
+      padding: 14px 28px;
+      background: var(--primary-blue);
+      color: #fff;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .cta:hover, .btn:hover {
+      background: #002a4b;
+      transform: scale(1.05);
+    }
+
+    /* ─── Video Placeholders ──────────────────────────────── */
+    .video-placeholder,
+    .thumbnail-video {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      height: 250px;
+      border-radius: 16px;
+      margin: 30px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #333;
+      width: 100%;
+      max-width: 1000px;
+      padding: 0 20px;
+    }
+
+    /* ─── Calculator Styles ───────────────────────────────── */
+    .calc-section {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      margin: 60px 0;
+    }
+    .calc-section h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .calc-section label {
+      display: block;
+      margin: 1rem 0 .5rem;
+      font-weight: 600;
+    }
+    .calc-section input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f9f9f9;
+    }
+    .calc-results, .calc-bonus {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+    }
+    .calc-results {
+      background: #e0f0ff;
+      border-left: 6px solid #0077cc;
+    }
+    .calc-bonus {
+      background: #fff8dc;
+      border-left: 6px solid #f5a623;
+    }
+
+    /* ─── PROFESSIONAL CONTAINER RULE ─────────────────────── */
+    .parallax,
+    section,
+    .calc-section {
+      width: 100%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+
+    /* ─── Responsive standalone images ────────────────────── */
+    body > img {
+      display: block;
+      max-width: 600px;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+    }
+
+    /* ─── Footer ──────────────────────────────────────────── */
+    footer {
+      padding: 40px 20px;
+      background: var(--primary-dark);
+      color: #fff;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-header">
+    <img src="https://i.imgur.com/4CCal4P.png" alt="Small Trades Evolution Logo">
+    <a href="#" class="cta">Join Now</a>
+  </div>
+  
+  <h1>Small Trades Evolution</h1>
+  <div class="parallax">
+    <h3>You didn’t land here by accident. Someone pointed you our way, or you saw something that made you stop scrolling. Good. That means you're curious — and if you're one of the first 25 to act, Member Engagement is designed to create life-changing revenue for our early adopter referral agents.</h3>
+  </div>
+    
+  <img src="https://i.imgur.com/oP8SUN2.png" alt="life changing">
+
+  <section class="show">
+    <h3>Become an Elite Referral Agent</h3>
+    <p>
+      <section class="referral-engine py-5">
+        <div class="container">
+          <h2 class="mb-3">America’s Most Powerful Passive-Income Engine</h2>
+          <p class="lead mb-4">No selling. Just referring people you already know in the Home Service Market.</p>
+          <p class="mb-4">Imagine what just <strong>5 new referrals each week</strong> could do for you:</p>
+          <ul class="mb-4">
+            <li><strong>Your referrals save thousands</strong> on the things they buy every day and the projects they love</li>
+            <li><strong>Free to join</strong>—no fees, no catch</li>
+            <li><strong>Level the playing field</strong> with big contractors and national chains</li>
+          </ul>
+          <a href="#signup" class="btn btn-primary btn-lg">Get Started for Free</a>
+        </div>
+
+        <h2>Year 1:</h2>
+        <h3>
+          Referrals → 260 compensation → $59,860 in direct-referral bonuses<br>
+          $66,819.83 in downstream bonuses → $126,694.31 total annual income<br><br>
+          Keep up the same pace in Year 2 (another 260 referrals), and watch your earnings skyrocket:<br>
+          Direct bonuses jump to $124,903.66<br>
+          Downstream income doubles to $212,401.87 → $337,305.53 total annual income
+        </h3>
+        <p>
+          <h3>
+            That’s over $337K a year by simply sharing a great opportunity with people you already know. How would an extra $336,000+ in your pocket each year change your life? Whether it’s paying off debt, funding dreams, or creating freedom for you and your family, this isn’t just a bonus – it’s a transformative income stream waiting for you. We are by your side the entire journey.
+
+            Ready to make it happen? Let’s talk about your first 5 referrals this week.
+          </h3>
+        </p>
+      </section>
+    </p>
+    <img src="https://i.imgur.com/4CCal4P.png"
+  </section>
+
+  <!-- First Content Block -->
+  <section>
+    <div class="container">
+<video width="640" height="360" controls>
+  <source src"https://ai.invideo.io/watch/2ayh_jNWPpN""type="video/mp4">
+</video>
+  </section>
+
+  <!-- Why Go Elite -->
+  <section>
+    <h2>Why Go Elite?</h2>
+    <ul>
+      <li>2% of your direct referrals’ annual spend</li>
+      <li>1% of your direct referrals’ referrals’ spend as an additional bonus stream</li>
+      <li>Weekly training & digital tools</li>
+      <li>Access to exclusive vendor offers</li>
+      <li>Founding Elite status locked for life</li>
+    </ul>
+    <div class="https://ai.invideo.io/watch/GkHFnQ63Go3"</div>
+  </section>
+
+  <!-- Real Earnings -->
+  <section>
+    <h2>Real Earnings, Real Fast</h2>
+    <div class="highlight">
+      <p>Bring in 5 direct referrals a week for your first year and realize $59,860 from direct referrals spend, ~$66,819.83/year from downstream — totaling $126,694.31 annually.</p>
+      <p>Keep consistent for your second year and watch the magic happen as your life changes. Your direct referral bonus is based on 520 direct referrals. How does $124,903.66 sound? Your downstream doubled as well, to $212,401.87. At the end of year two, you are marching to an annual income of $337,305.53. Tell me, would this reality change your life?</p>
+    </div>
+  </section>
+
+  <!-- Calculator Section as Wizard -->
+  <section class="calc-section show">
+    <h2>Referral-Powered Lifestyle Calculator</h2>
+    <img class="thumbnail-video" src="https://via.placeholder.com/220x120?text=Calculator+Walkthrough" alt="Calculator Walkthrough">
+
+    <!-- Step 1: Business Expenses -->
+    <div class="step active" id="step-1">
+      <h3>Business Expenses (Monthly)</h3>
+      <label for="cogs">Cost of Goods Sold (COGS)</label><input type="number" id="cogs">
+      <label for="tools">Tools & Equipment</label><input type="number" id="tools">
+      <label for="fleet">Fleet & Fuel</label><input type="number" id="fleet">
+      <label for="merchantFees">Merchant Fees</label><input type="number" id="merchantFees">
+    </div>
+
+    <!-- Step 2: Personal Expenses -->
+    <div class="step" id="step-2">
+      <h3>Personal Expenses (Monthly)</h3>
+      <label for="housing">Housing (Rent/Mortgage)</label><input type="number" id="housing">
+      <label for="utilities">Utilities & Internet</label><input type="number" id="utilities">
+      <label for="groceries">Groceries & Essentials</label><input type="number" id="groceries">
+      <label for="health">Health Insurance & Medical</label><input type="number" id="health">
+      <label for="kids">Kids (clothes, school, college)</label><input type="number" id="kids">
+      <label for="">Kids (clothes, school, college)</label><input type="number" id="kids">
+    </div>
+
+    <!-- Step 3: Dream Life & Referral Plan -->
+    <div class="step" id="step-3">
+      <h3>Dream Life & Referral Plan</h3>
+      <label for="vacations">Vacations ($/year)</label><input type="number" id="vacations">
+      <label for="cars">Dad's toys ($/year)</label><input type="number" id="cars">
+      <label for="homes">Homes ($/year)</label><input type="number" id="homes">
+      <label for="boat">Runabout boat ($/year)</label><input type="number" id="boat">
+      <label for="charity">Giving back ($/year)</label><input type="number" id="charity">
+      <label for="investments">Investments Goal ($/year)</label><input type="number" id="investments">
+      <label for="referrals">Referrals every 6 months</label><input type="number" id="referrals" placeholder="e.g. 5">
+    </div>
+
+    <div class="btn-group">
+      <button class="btn" id="prevBtn" onclick="changeStep(-1)" disabled>Back</button>
+      <button class="btn" id="nextBtn" onclick="changeStep(1)">Next</button>
+    </div>
+
+    <div class="calc-results" id="calc-results" style="display:none;">
+      <h3>Freedom Forecast</h3>
+      <p id="total-cost"></p>
+      <p id="income-proj"></p>
+      <p id="status-msg"></p>
+    </div>
+    <div class="calc-bonus" id="calc-bonus" style="display:none;">
+      <h3>Elite Agent Bonus Tier</h3>
+      <p>$25,000/year when goals are met early. Includes coaching, community, and referral tools.</p>
+    </div>
+  </section>
+
+  <footer>
+    <!-- Footer content -->
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    document.querySelectorAll('section, footer').forEach(sec =>
+      new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) entries[0].target.classList.add('show');
+      }, { threshold: 0.1 }).observe(sec)
+    );
+
+    // Wizard Steps
+    let currentStep = 1;
+    function showStep(n) {
+      document.querySelectorAll('.step').forEach((el,i) =>
+        el.classList.toggle('active', i+1===n)
+      );
+      document.getElementById('prevBtn').disabled = n===1;
+      document.getElementById('nextBtn').textContent = n===3 ? 'Calculate' : 'Next';
+    }
+    function changeStep(n) {
+      currentStep += n;
+      if (currentStep < 1) currentStep = 1;
+      if (currentStep > 3) runCalc();
+      else showStep(currentStep);
+    }
+
+    // Calculator Logic
+    function runCalc() {
+      const biz = ['cogs','tools','fleet','merchantFees'];
+      const per = ['housing','utilities','groceries','health'];
+      let monthly = 0;
+      biz.concat(per).forEach(id => monthly += parseFloat(document.getElementById(id).value)||0);
+      let total = monthly * 12;
+      const extras = ['vacations','familyDays','investments']
+        .reduce((s,id) => s + (parseFloat(document.getElementById(id).value)||0), 0);
+      total += extras;
+      const refs = parseInt(document.getElementById('referrals').value)||0;
+      const direct = refs*22000*0.02;
+      const down = refs*2.3*22000*0.01;
+      const income = direct + down;
+      document.getElementById('total-cost').textContent    = `Total Annual Need: $${total.toFixed(2)}`;
+      document.getElementById('income-proj').textContent   = `Projected Income: $${income.toFixed(2)}`;
+      document.getElementById('status-msg').textContent    =
+        income >= total ? '✅ You can fund your goals.' : '⚠️ More referrals needed.';
+      document.getElementById('calc-results').style.display = 'block';
+      document.getElementById('calc-bonus').style.display   = 'block';
+    }
+    showStep(currentStep);
+  </script>
+</body>
+</html>
